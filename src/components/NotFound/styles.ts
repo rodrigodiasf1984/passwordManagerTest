@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: ${theme.palette.common.white};
+  color: ${theme.palette.common.black};
   min-height: 80vh;
   h2 {
     font-size: ${converterToRem(55)}rem;
