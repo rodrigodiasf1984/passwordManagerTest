@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Content, Top } from './styles';
+import { Container, Content, Top, ContainerStep } from './styles';
 
 type CustomBackgroundProps = {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ function CustomBackground({ children }: CustomBackgroundProps) {
     <Container>
       <Top />
       <Content />
-      {children}
+      <ContainerStep>{children}</ContainerStep>
     </Container>
   );
 }
