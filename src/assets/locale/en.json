@@ -1,0 +1,9 @@
+{
+  "notFoundComponent":{
+    "notFound": "Page not found"
+  },
+  "productInformationView":{
+    "title": "Create your password manager",
+    "imageLeftDescription":"Save here all your passwords, data or any information, forget paper notes and unprotected applications."
+  }
+}

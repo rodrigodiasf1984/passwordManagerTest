@@ -1,8 +1,9 @@
 import React from 'react';
 import OpenbankLogo from '../../assets/img/key_openbank.png';
-import Step1 from '../ProductInformation';
-import Step2 from '../Form';
-import Step3 from '../Feedback';
+import stepImage from './step1.png';
+import step2Image from './step2.png';
+import errorImage from './error.png';
+import successImage from './success.png';
 
 import './Intructions.scss';
 
@@ -44,7 +45,7 @@ function Intructions() {
         <ul>
           <li>
             <h4>1º Pantalla de información de la contraseña</h4>
-            <Step1 />
+            <img src={stepImage} alt="Step" />
             <p>{textWithDoubleQuotes}</p>
             <h5>
               Esta pantalla será el paso numero uno del wizard y tiene que tener
@@ -56,7 +57,7 @@ function Intructions() {
           </li>
           <li>
             <h4>2º Pantalla de creación de la contraseña</h4>
-            <Step2 />
+            <img src={step2Image} alt="Step" />
             <p>
               En esta pantalla al usuario se le van a pedir los siguientes datos
               en un formulario.
@@ -78,8 +79,9 @@ function Intructions() {
           </li>
           <li>
             <h4>3º Pantalla de feedback</h4>
-            <Step3 success />
-            <Step3 success={false} />
+            <img src={successImage} alt="Step" />
+            <img src={errorImage} alt="Step" />
+
             <p>
               Esta pantalla unicamente mostrará un icono de Ok/Ko informando al
               usuario del resultado, además de un boton que reinicie el proceso.

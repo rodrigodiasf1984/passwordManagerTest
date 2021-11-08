@@ -4,19 +4,24 @@ import React from 'react';
 import group3Image from 'assets/img/group-3.svg';
 import groupImage from 'assets/img/group.svg';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import theme from 'theme';
+import { useTranslation } from 'react-i18next';
 
+import { useHistory } from 'react-router-dom';
 import { ContainerStep1 } from './styles';
 
 function Step1() {
+  const { t } = useTranslation();
+  const history = useHistory();
+
   return (
     <CustomBackground>
       <ContainerStep1>
-        <Header />
+        <Header currentStep={1} />
         <Box className="content">
-          <Typography variant="h1" color="#1a4158">
-            Crea tu Password Manager
+          <Typography variant="h1" color={`${theme.palette.secondary}`}>
+            {t('productInformationView.title')}
           </Typography>
-          {/* <Divider className="divider" /> */}
           <Divider
             sx={{
               marginTop: '1rem',
@@ -100,6 +105,7 @@ function Step1() {
               Cancelar
             </Button>
             <Button
+              onClick={() => history.push('/form')}
               variant="contained"
               color="secondary"
               endIcon={<KeyboardArrowRightIcon />}

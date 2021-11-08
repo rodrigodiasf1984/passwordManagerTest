@@ -1,0 +1,9 @@
+{
+  "notFoundComponent":{
+    "notFound": "página não encontrada"
+  },
+  "productInformationView":{
+    "title": "Crie seu gerenciador de senhas",
+    "imageLeftDescription":"Salve aqui todas as suas senhas, dados ou qualquer informação, esqueça anotações em papel e aplicativos desprotegidos."
+  }
+}
