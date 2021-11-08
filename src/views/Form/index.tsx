@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { CustomBackground, Header, PasswordStrengthMeter } from 'components';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Typography,
   Divider,
   IconButton,
   InputAdornment,
-  OutlinedInput,
   Box,
   Button,
+  TextField,
 } from '@mui/material';
 import theme from 'theme';
 import { useTranslation } from 'react-i18next';
@@ -16,18 +19,47 @@ import { VisibilityOff, Visibility } from '@mui/icons-material';
 import { useHistory } from 'react-router-dom';
 import { Content } from './styles';
 
-type FormSchema = {
+interface IFormInputs {
   password: string;
-  confirmPassword: string;
   passwordHint: string;
+  confirmPassword: string;
+}
+
+interface InitialStateProps extends IFormInputs {
   showPassword: boolean;
   showConfirmPassword: boolean;
-};
+}
+
+const schema = yup.object().shape({
+  password: yup.string().required(),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Passwords must match')
+    .required('Password confirm is required'),
+  passwordHint: yup.string().required(),
+});
+
+// const schema = yup.object().shape({
+//   password: yup
+//     .string()
+//     .required('Password is required')
+//     .min(8, 'Password must be at least 8 characters long')
+//     .max(24, 'Password must be less than 24 characters long')
+//     .matches(
+//       /^.*[!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?].*$/,
+//       'Need one special character',
+//     ),
+//   confirmPassword: yup
+//     .string()
+//     .oneOf([yup.ref('password'), null], 'Passwords must match')
+//     .required('Password confirm is required'),
+//   passwordHint: yup.string().required().max(255, 'Password hint must be less than 255 characters long'),
+// });
 
 function Step2() {
   const { t } = useTranslation();
   const history = useHistory();
-  const [values, setValues] = useState<FormSchema>({
+  const [values, setValues] = useState<InitialStateProps>({
     password: '',
     confirmPassword: '',
     passwordHint: '',
@@ -35,8 +67,16 @@ function Step2() {
     showConfirmPassword: false,
   });
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
   const handleChange =
-    (prop: keyof FormSchema) =>
+    (prop: keyof IFormInputs) =>
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setValues({ ...values, [prop]: event.target.value });
     };
@@ -54,8 +94,9 @@ function Step2() {
     });
   };
 
-  const handleSubmit = () => {
-    history.push('/form');
+  const handleSubmitForm = (data: IFormInputs) => {
+    console.log(data);
+    console.log(errors, 'errors');
   };
 
   return (
@@ -75,7 +116,10 @@ function Step2() {
         <Typography variant="h4" paddingTop={3} paddingBottom={3}>
           {t('views.descritipion1')}
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+        <form
+          onSubmit={handleSubmit(handleSubmitForm)}
+          // sx={{ mt: 1 }}
+        >
           <Box sx={{ display: 'flex', flexDirection: 'row' }}>
             <Box sx={{ width: '30%', marginRight: '2rem' }}>
               <Typography
@@ -87,13 +131,18 @@ function Step2() {
               >
                 Crea tu Contraseña Maestra
               </Typography>
-              <OutlinedInput
+              <TextField
+                {...register('password', {
+                  required: true,
+                })}
+                error={!!errors.password}
+                helperText={errors.password}
                 fullWidth
                 id="outlined-adornment-password"
                 type={values.showPassword ? 'text' : 'password'}
                 value={values.password}
                 onChange={handleChange('password')}
-                endAdornment={
+                InputProps={
                   <InputAdornment position="end">
                     <IconButton
                       aria-label="toggle password visibility"
@@ -118,13 +167,20 @@ function Step2() {
               >
                 Repite tu Contraseña Maestra
               </Typography>
-              <OutlinedInput
+              <TextField
+                {...register('confirmPassword', {
+                  required: true,
+                })}
+                error={!!errors.confirmPassword}
+                helperText={
+                  errors.confirmPassword ? errors.confirmPassword : ''
+                }
                 fullWidth
                 id="outlined-adornment-confirm-password"
                 type={values.showConfirmPassword ? 'text' : 'password'}
                 value={values.confirmPassword}
                 onChange={handleChange('confirmPassword')}
-                endAdornment={
+                InputProps={
                   <InputAdornment position="end">
                     <IconButton
                       aria-label="toggle confirm password visibility"
@@ -157,7 +213,12 @@ function Step2() {
           >
             Crea tu pista para recordar tu contraseña(opicional)
           </Typography>
-          <OutlinedInput
+          <TextField
+            {...register('passwordHint', {
+              required: false,
+            })}
+            error={!!errors.passwordHint}
+            helperText={errors.passwordHint}
             fullWidth
             id="outlined-adornment-password-hint"
             type="text"
@@ -165,7 +226,7 @@ function Step2() {
             onChange={handleChange('passwordHint')}
             label="Hint Password"
           />
-        </Box>
+        </form>
         <Box
           sx={{
             display: 'flex',
@@ -191,7 +252,13 @@ function Step2() {
             {t('button.cancel')}
           </Button>
           <Button
-            onClick={() => handleSubmit()}
+            onClick={() =>
+              handleSubmitForm({
+                password: values.password,
+                confirmPassword: values.confirmPassword,
+                passwordHint: values.passwordHint,
+              })
+            }
             variant="contained"
             color="secondary"
             endIcon={<KeyboardArrowRightIcon />}

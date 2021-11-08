@@ -1,7 +1,5 @@
 import React from 'react';
 import { Header } from 'components';
-import successImg from './success.png';
-import error from './error.png';
 
 type Props = {
   success: boolean;
