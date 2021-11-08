@@ -8,7 +8,7 @@ import theme from 'theme';
 import { useTranslation } from 'react-i18next';
 
 import { useHistory } from 'react-router-dom';
-// import { ContainerStep1 } from './styles';
+import { Content } from './styles';
 
 function Step1() {
   const { t } = useTranslation();
@@ -17,7 +17,7 @@ function Step1() {
   return (
     <CustomBackground>
       <Header currentStep={1} />
-      <Box className="content">
+      <Content>
         <Typography variant="h1" color={`${theme.palette.secondary}`}>
           {t('productInformationView.title')}
         </Typography>
@@ -48,9 +48,7 @@ function Step1() {
             >
               <img src={groupImage} alt="group" />
               <Typography variant="h4" maxWidth={300} paddingTop={5}>
-                Guarda aqui todas tus contraseñas, datos o cualquier
-                información, olvida las notas de papel y las aplicaciones no
-                protegidas.
+                {t('productInformationView.imageLeftDescription')}
               </Typography>
             </Box>
             <Box
@@ -121,7 +119,7 @@ function Step1() {
             Seguinte
           </Button>
         </Box>
-      </Box>
+      </Content>
     </CustomBackground>
   );
 }
