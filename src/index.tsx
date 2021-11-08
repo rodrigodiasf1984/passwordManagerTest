@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { ThemeProvider } from '@mui/material';
 import theme from 'theme';
+import { ThemeProvider } from '@mui/material';
 import App from './App';
 import * as serviceWorker from './serviceWorker.js';
 
+import './i18n';
+
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <App />,
+    <App />
   </ThemeProvider>,
   document.getElementById('root'),
 );
