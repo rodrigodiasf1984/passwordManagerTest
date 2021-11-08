@@ -1,4 +1,5 @@
 import React from 'react';
+import { Header } from 'components';
 import successImg from './success.png';
 import error from './error.png';
 
@@ -7,7 +8,7 @@ type Props = {
 };
 
 function Step3({ success }: Props) {
-  return <img src={success ? successImg : error} alt="Conditional" />;
+  return <Header currentStep={3} />;
 }
 
 export default Step3;

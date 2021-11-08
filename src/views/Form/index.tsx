@@ -1,8 +1,8 @@
 import React from 'react';
-import stepImage from './step2.png';
+import { Header } from 'components';
 
 function Step2() {
-  return <img src={stepImage} alt="Step2" />;
+  return <Header currentStep={2} />;
 }
 
 export default Step2;

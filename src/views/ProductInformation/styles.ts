@@ -18,11 +18,5 @@ export const ContainerStep1 = styled.div`
     width: 100%;
     height: 100%;
     padding: ${converterToRem(30)}rem ${converterToRem(100)}rem;
-
-    /* .divider {
-      margin-top: '1rem';
-      width: '2%';
-      border-bottom-width: 3;
-    } */
   }
 `;

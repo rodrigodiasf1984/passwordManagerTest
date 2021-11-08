@@ -9,7 +9,7 @@ const NotFound: React.FC = () => {
     <CustomBackground>
       <Container>
         <h2>404</h2>
-        <p>{t('notFound')}</p>
+        <p>{t('notFoundComponent.notFound')}</p>
       </Container>
     </CustomBackground>
   );
