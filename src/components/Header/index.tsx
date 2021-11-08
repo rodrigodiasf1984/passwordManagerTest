@@ -19,15 +19,20 @@ type HeaderProps = {
 };
 
 const Header = ({ currentStep }: HeaderProps) => {
+  const langFromStorage = localStorage.getItem('i18nextLng');
   const [lang, setLang] = useState('en');
 
   const handleChange = (event: SelectChangeEvent) => {
     setLang(event.target.value as string);
+    localStorage.setItem('i18nextLng', event.target.value as string);
   };
 
   useEffect(() => {
+    if (langFromStorage) {
+      setLang(langFromStorage);
+    }
     i18next.changeLanguage(lang);
-  }, [lang]);
+  }, [lang, langFromStorage]);
 
   return (
     <Container>
