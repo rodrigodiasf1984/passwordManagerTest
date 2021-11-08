@@ -2,9 +2,18 @@
   "notFoundComponent":{
     "notFound": "página no encontrada"
   },
-  "productInformationView":{
+  "views":{
     "title": "Crea tu gestor de contraseñas ",
-    "imageLeftDescription":"Guarda aqui todas tus contraseñas, datos o cualquier información, olvida las notas de papel y las aplicaciones no protegidas."
+    "imageLeftDescription":"Guarda aqui todas tus contraseñas, datos o cualquier información, olvida las notas de papel y las aplicaciones no protegidas.",
+    "imageRightDescription":"Crea tu clave maestra: solo tú podrás acceder a tus secretos con ella.",
+    "subtitle":"¿Cómo funciona?",
+    "descritipion1":" En primer lugar, debes crear una contraseña para sus pertenencias electrónicas. No podrás recuperar tu contraseña, asi que recuérdela bien.",
+    "subtitle2":"Qué datos puedes guardar",
+    "descritipion2":"Por ejemplo, el número de tu tarjeta, el PIN el PUK de tu teléfono móvil, ele número de serie de alguno de tus dispositvos o cualquier información que necessites tener en lugar seguro."
+  },
+  "button":{
+    "cancel": "Cancelar",
+    "next": "Siguiente"
   }
 
 }

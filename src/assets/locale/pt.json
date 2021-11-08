@@ -2,8 +2,17 @@
   "notFoundComponent":{
     "notFound": "página não encontrada"
   },
-  "productInformationView":{
+  "views":{
     "title": "Crie seu gerenciador de senhas",
-    "imageLeftDescription":"Salve aqui todas as suas senhas, dados ou qualquer informação, esqueça anotações em papel e aplicativos desprotegidos."
+    "imageLeftDescription":"Salve aqui todas as suas senhas, dados ou qualquer informação, esqueça anotações em papel e aplicativos desprotegidos.",
+    "imageRightDescription":"Crie sua chave mestra: somente você pode acessar seus segredos com ela.",
+    "subtitle":"Como funciona?",
+    "descritipion1":"Primeiro, você deve criar uma senha para seus pertences eletrônicos. Você não conseguirá recuperar sua senha, então lembre-se dela bem.",
+    "subtitle2":"Quais dados você pode salvar",
+    "descritipion2":"Por exemplo, o número do seu cartão, o PIN, o PUK do seu celular, o número de série de um dos seus dispositivos ou qualquer informação que você precise manter em um local seguro."
+  },
+  "button":{
+    "cancel": "Cancelar",
+    "next": "Próximo"
   }
 }

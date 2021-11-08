@@ -2,8 +2,17 @@
   "notFoundComponent":{
     "notFound": "Page not found"
   },
-  "productInformationView":{
+  "views":{
     "title": "Create your password manager",
-    "imageLeftDescription":"Save here all your passwords, data or any information, forget paper notes and unprotected applications."
+    "imageLeftDescription":"Save here all your passwords, data or any information, forget paper notes and unprotected applications.",
+    "imageRightDescription":"Create your master key: only you can access your secrets with it.",
+    "subtitle":"How does it work?",
+    "descritipion1":"First, you must create a password for your electronic belongings. You will not be able to recover your password, so remember it well.",
+    "subtitle2":"What data can you save",
+    "descritipion2":"For example, the number of your card, the PIN, the PUK of your mobile phone, the serial number of one of your devices or any information that you need to have in a safe place."
+  },
+  "button":{
+    "cancel": "Cancel",
+    "next": "Next"
   }
 }

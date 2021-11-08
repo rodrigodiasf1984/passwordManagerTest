@@ -1,20 +1,17 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import theme from 'theme';
-import { CircularProgress, ThemeProvider } from '@mui/material';
+import { ThemeProvider } from '@mui/material';
 import App from './App';
 import * as serviceWorker from './serviceWorker.js';
 
 import './i18n';
 
 ReactDOM.render(
-  <Suspense fallback={<CircularProgress color="secondary" />}>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-    ,
-  </Suspense>,
+  <ThemeProvider theme={theme}>
+    <App />
+  </ThemeProvider>,
   document.getElementById('root'),
 );
 

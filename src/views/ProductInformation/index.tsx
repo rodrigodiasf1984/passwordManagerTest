@@ -3,23 +3,22 @@ import { CustomBackground, Header } from 'components';
 import React from 'react';
 import group3Image from 'assets/img/group-3.svg';
 import groupImage from 'assets/img/group.svg';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+
 import theme from 'theme';
 import { useTranslation } from 'react-i18next';
-
 import { useHistory } from 'react-router-dom';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Content } from './styles';
 
 function Step1() {
   const { t } = useTranslation();
   const history = useHistory();
-
   return (
     <CustomBackground>
       <Header currentStep={1} />
       <Content>
-        <Typography variant="h1" color={`${theme.palette.secondary}`}>
-          {t('productInformationView.title')}
+        <Typography variant="h1" color={theme.palette.secondary.main}>
+          {t('views.title')}
         </Typography>
         <Divider
           sx={{
@@ -48,7 +47,7 @@ function Step1() {
             >
               <img src={groupImage} alt="group" />
               <Typography variant="h4" maxWidth={300} paddingTop={5}>
-                {t('productInformationView.imageLeftDescription')}
+                {t('views.imageLeftDescription')}
               </Typography>
             </Box>
             <Box
@@ -60,23 +59,27 @@ function Step1() {
               }}
             >
               <img src={group3Image} alt="group" />
-              <Typography variant="h4" maxWidth={300} paddingTop={5}>
-                Crea tu clave maestra: solo tú podrás acceder a tus secretos con
-                ella.
+              <Typography
+                variant="h4"
+                maxWidth={300}
+                paddingTop={5}
+                color={theme.palette.secondary.main}
+              >
+                {t('views.imageRightDescription')}
               </Typography>
             </Box>
           </Box>
-          <Typography variant="h3">Cómo funciona?</Typography>
-          <Typography variant="h4" paddingTop={3} paddingBottom={3}>
-            Em primer lugar, debes crear una contraseña para sus pertenencias
-            electrónicas. No podrás recuperar tu contraseña, asi que recuérdela
-            bien.
+          <Typography variant="h3" color={theme.palette.secondary.main}>
+            {t('views.subtitle')}
           </Typography>
-          <Typography variant="h3">Qué datos puedes guardar</Typography>
+          <Typography variant="h4" paddingTop={3} paddingBottom={3}>
+            {t('views.descritipion1')}
+          </Typography>
+          <Typography variant="h3" color={theme.palette.secondary.main}>
+            {t('views.subtitle2')}
+          </Typography>
           <Typography variant="h4" paddingTop={3}>
-            Por ejemplo, el número de tu tarjeta, el PIN el PUK de tu teléfono
-            móvil, ele número de serie de alguno de tus dispositvos o cualquier
-            información que necessites tener en lugar seguro.
+            {t('views.descritipion2')}
           </Typography>
         </Box>
         <Box
@@ -84,6 +87,7 @@ function Step1() {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
+            paddingTop: '5rem',
           }}
         >
           <Button
@@ -98,8 +102,9 @@ function Step1() {
               height: '3rem',
               textTransform: 'capitalize',
             }}
+            onClick={() => history.goBack()}
           >
-            Cancelar
+            {t('button.cancel')}
           </Button>
           <Button
             onClick={() => history.push('/form')}
@@ -116,7 +121,7 @@ function Step1() {
               textTransform: 'capitalize',
             }}
           >
-            Seguinte
+            {t('button.next')}
           </Button>
         </Box>
       </Content>
