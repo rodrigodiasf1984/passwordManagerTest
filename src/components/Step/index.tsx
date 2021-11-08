@@ -10,9 +10,18 @@ type StepProps = {
 };
 
 const Step = ({ name, active, completed = false }: StepProps) => (
-  <div style={{ display: 'flex', flexDirection: 'column' }}>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
     <Circle active={active} completed={completed}>
-      <span>{completed ? <DoneIcon /> : name}</span>
+      <span>
+        {completed ? <DoneIcon style={{ fontWeight: 'bold' }} /> : name}
+      </span>
     </Circle>
   </div>
 );

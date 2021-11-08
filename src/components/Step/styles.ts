@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import styled, { css } from 'styled-components';
 import theme from 'theme';
+import { converterToRem } from 'utils/converterToRem';
 
 interface CircleProps {
   active: boolean;
@@ -14,9 +15,11 @@ export const Circle = styled.div<CircleProps>`
       ? theme.palette.secondary.main
       : props.completed
       ? theme.palette.primary.main
-      : '#e0e0e0'};
-  width: ${props => (props.active ? '50px' : '30px')};
-  height: ${props => (props.active ? '50px' : '30px')};
+      : theme.palette.secondary.light};
+  width: ${props =>
+    props.active ? `${converterToRem(50)}rem` : `${converterToRem(40)}rem`};
+  height: ${props =>
+    props.active ? `${converterToRem(50)}rem` : `${converterToRem(40)}rem`};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,10 +32,11 @@ export const Circle = styled.div<CircleProps>`
       css`
         position: absolute;
         content: '';
-        border-right: 50px solid transparent;
-        border-left: 50px solid transparent;
-        border-bottom: 50px solid ${theme.palette.common.white};
-        top: 60px;
+        border-right: ${converterToRem(50)}rem solid transparent;
+        border-left: ${converterToRem(50)}rem solid transparent;
+        border-bottom: ${converterToRem(50)}rem solid
+          ${theme.palette.common.white};
+        top: ${converterToRem(60)}rem;
       `}
   }
 `;

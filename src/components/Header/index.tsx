@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import LanguageIcon from '@mui/icons-material/Language';
 import {
   Box,
   Divider,
@@ -49,7 +48,10 @@ const Header = ({ currentStep }: HeaderProps) => {
           sx={{
             width: '50px',
             borderBottom: '5px solid',
-            color: currentStep > 1 ? theme.palette.primary.main : '#e0e0e0',
+            color:
+              currentStep > 1
+                ? theme.palette.primary.main
+                : theme.palette.secondary.light,
           }}
         />
         <Step name={2} active={currentStep === 2} completed={currentStep > 2} />
@@ -57,7 +59,10 @@ const Header = ({ currentStep }: HeaderProps) => {
           sx={{
             width: '50px',
             borderBottom: '5px solid',
-            color: currentStep > 2 ? theme.palette.primary.main : '#e0e0e0',
+            color:
+              currentStep > 2
+                ? theme.palette.primary.main
+                : theme.palette.secondary.light,
           }}
         />
         <Step name={3} active={currentStep === 3} completed={false} />
