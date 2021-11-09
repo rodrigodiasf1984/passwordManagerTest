@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
-import { CustomBackground, Header, PasswordStrengthMeter } from 'components';
+import React, { useCallback, useEffect, useState } from 'react';
+import {
+  CustomBackground,
+  Header,
+  PasswordStrengthMeter,
+  CustomTooltip,
+} from 'components';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -7,11 +12,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Typography,
   Divider,
-  IconButton,
   InputAdornment,
   Box,
   Button,
-  TextField,
+  OutlinedInput,
+  FormHelperText,
+  IconButton,
 } from '@mui/material';
 import theme from 'theme';
 import { useTranslation } from 'react-i18next';
@@ -30,32 +36,6 @@ interface InitialStateProps extends IFormInputs {
   showConfirmPassword: boolean;
 }
 
-const schema = yup.object().shape({
-  password: yup.string().required(),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password'), null], 'Passwords must match')
-    .required('Password confirm is required'),
-  passwordHint: yup.string().required(),
-});
-
-// const schema = yup.object().shape({
-//   password: yup
-//     .string()
-//     .required('Password is required')
-//     .min(8, 'Password must be at least 8 characters long')
-//     .max(24, 'Password must be less than 24 characters long')
-//     .matches(
-//       /^.*[!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?].*$/,
-//       'Need one special character',
-//     ),
-//   confirmPassword: yup
-//     .string()
-//     .oneOf([yup.ref('password'), null], 'Passwords must match')
-//     .required('Password confirm is required'),
-//   passwordHint: yup.string().required().max(255, 'Password hint must be less than 255 characters long'),
-// });
-
 function Step2() {
   const { t } = useTranslation();
   const history = useHistory();
@@ -66,11 +46,36 @@ function Step2() {
     showPassword: false,
     showConfirmPassword: false,
   });
+  const [disabled, setDisabled] = useState(false);
+
+  const schema = yup.object().shape({
+    password: yup
+      .string()
+      .required(`${t('form.errors.passwordRequired')}`)
+      .min(8, `${t('form.errors.passwordMinLength')}`)
+      .max(24, `${t('form.errors.passwordMaxLength')}`)
+      .matches(
+        /^.*[!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?].*$/,
+        `${t('form.errors.passwordSpecialChar')}`,
+      ),
+    confirmPassword: yup
+      .string()
+      .oneOf(
+        [yup.ref('password'), null],
+        `${t('form.errors.passwordNotMatch')}`,
+      )
+      .required(`${t('form.errors.passwordConfirmRequired')}`),
+    passwordHint: yup
+      .string()
+      .required(`${t('form.errors.passwordHintRequired')}`)
+      .max(255, `${t('form.errors.passwordHintLength')}`),
+  });
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -79,6 +84,7 @@ function Step2() {
     (prop: keyof IFormInputs) =>
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setValues({ ...values, [prop]: event.target.value });
+      reset();
     };
 
   const handleClickShowPassword = () => {
@@ -99,6 +105,17 @@ function Step2() {
     console.log(errors, 'errors');
   };
 
+  const handleErrors = useCallback(() => {
+    if (errors.password || errors.confirmPassword || errors.passwordHint) {
+      setDisabled(true);
+    }
+    setDisabled(false);
+  }, [errors.confirmPassword, errors.password, errors.passwordHint]);
+
+  useEffect(() => {
+    handleErrors();
+  }, [errors, handleErrors]);
+
   return (
     <CustomBackground>
       <Header currentStep={2} />
@@ -116,10 +133,7 @@ function Step2() {
         <Typography variant="h4" paddingTop={3} paddingBottom={3}>
           {t('views.descritipion1')}
         </Typography>
-        <form
-          onSubmit={handleSubmit(handleSubmitForm)}
-          // sx={{ mt: 1 }}
-        >
+        <form onSubmit={handleSubmit(handleSubmitForm)}>
           <Box sx={{ display: 'flex', flexDirection: 'row' }}>
             <Box sx={{ width: '30%', marginRight: '2rem' }}>
               <Typography
@@ -129,20 +143,19 @@ function Step2() {
                 color={theme.palette.secondary.main}
                 sx={{ fontWeight: 'bold' }}
               >
-                Crea tu Contraseña Maestra
+                {t('form.labelInputForm1')}
               </Typography>
-              <TextField
+              <OutlinedInput
                 {...register('password', {
                   required: true,
                 })}
                 error={!!errors.password}
-                helperText={errors.password}
                 fullWidth
                 id="outlined-adornment-password"
                 type={values.showPassword ? 'text' : 'password'}
                 value={values.password}
                 onChange={handleChange('password')}
-                InputProps={
+                endAdornment={
                   <InputAdornment position="end">
                     <IconButton
                       aria-label="toggle password visibility"
@@ -156,6 +169,12 @@ function Step2() {
                 label="Password"
               />
               <PasswordStrengthMeter password={values.password} />
+              <FormHelperText
+                id="outlined-adornment-password"
+                style={{ color: `${theme.palette.primary.main}` }}
+              >
+                {errors.password && errors.password.message}
+              </FormHelperText>
             </Box>
             <Box sx={{ width: '30%' }}>
               <Typography
@@ -165,22 +184,19 @@ function Step2() {
                 color={theme.palette.secondary.main}
                 sx={{ fontWeight: 'bold' }}
               >
-                Repite tu Contraseña Maestra
+                {t('form.labelInputForm2')}
               </Typography>
-              <TextField
+              <OutlinedInput
                 {...register('confirmPassword', {
                   required: true,
                 })}
                 error={!!errors.confirmPassword}
-                helperText={
-                  errors.confirmPassword ? errors.confirmPassword : ''
-                }
                 fullWidth
                 id="outlined-adornment-confirm-password"
                 type={values.showConfirmPassword ? 'text' : 'password'}
                 value={values.confirmPassword}
                 onChange={handleChange('confirmPassword')}
-                InputProps={
+                endAdornment={
                   <InputAdornment position="end">
                     <IconButton
                       aria-label="toggle confirm password visibility"
@@ -198,27 +214,41 @@ function Step2() {
                 label="Confirm Password"
               />
               <PasswordStrengthMeter password={values.confirmPassword} />
+              <FormHelperText
+                id="outlined-adornment-password"
+                style={{ color: `${theme.palette.primary.main}` }}
+              >
+                {errors.confirmPassword && errors.confirmPassword.message}
+              </FormHelperText>
             </Box>
           </Box>
           <Typography variant="h4" paddingTop={5} paddingBottom={1}>
-            También puedes crear una pista que te ayude a recordar tu contraseña
-            maestra.
+            {t('form.infoTextForm')}
           </Typography>
-          <Typography
-            variant="h4"
-            paddingTop={1}
-            paddingBottom={1}
-            color={theme.palette.secondary.main}
-            sx={{ fontWeight: 'bold' }}
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'flex-start',
+            }}
           >
-            Crea tu pista para recordar tu contraseña(opicional)
-          </Typography>
-          <TextField
+            <Typography
+              variant="h4"
+              paddingTop={1}
+              paddingBottom={1}
+              color={theme.palette.secondary.main}
+              sx={{ fontWeight: 'bold' }}
+            >
+              {t('form.labelInputForm3')}
+            </Typography>
+            <CustomTooltip />
+          </Box>
+          <OutlinedInput
             {...register('passwordHint', {
               required: false,
             })}
             error={!!errors.passwordHint}
-            helperText={errors.passwordHint}
             fullWidth
             id="outlined-adornment-password-hint"
             type="text"
@@ -226,55 +256,60 @@ function Step2() {
             onChange={handleChange('passwordHint')}
             label="Hint Password"
           />
+          <FormHelperText
+            id="outlined-adornment-password"
+            style={{ color: `${theme.palette.primary.main}` }}
+          >
+            {errors.passwordHint && errors.passwordHint.message}
+          </FormHelperText>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              paddingTop: `${
+                errors.confirmPassword || errors.password || errors.passwordHint
+                  ? '14rem'
+                  : '16rem'
+              }`,
+            }}
+          >
+            <Button
+              variant="text"
+              color="secondary"
+              sx={{
+                marginTop: '2rem',
+                display: 'flex',
+                alignSelf: 'flex-start',
+                width: '10rem',
+                fontWeight: 'bold',
+                height: '3rem',
+                textTransform: 'capitalize',
+              }}
+              onClick={() => history.goBack()}
+            >
+              {t('button.cancel')}
+            </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              color="secondary"
+              endIcon={<KeyboardArrowRightIcon />}
+              disabled={disabled}
+              sx={{
+                marginTop: '2rem',
+                display: 'flex',
+                alignSelf: 'flex-end',
+                width: '10rem',
+                height: '3rem',
+                fontWeight: 'bold',
+                textTransform: 'capitalize',
+              }}
+            >
+              {t('button.next')}
+            </Button>
+          </Box>
         </form>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            paddingTop: '5rem',
-          }}
-        >
-          <Button
-            variant="text"
-            color="secondary"
-            sx={{
-              marginTop: '2rem',
-              display: 'flex',
-              alignSelf: 'flex-start',
-              width: '10rem',
-              fontWeight: 'bold',
-              height: '3rem',
-              textTransform: 'capitalize',
-            }}
-            onClick={() => history.goBack()}
-          >
-            {t('button.cancel')}
-          </Button>
-          <Button
-            onClick={() =>
-              handleSubmitForm({
-                password: values.password,
-                confirmPassword: values.confirmPassword,
-                passwordHint: values.passwordHint,
-              })
-            }
-            variant="contained"
-            color="secondary"
-            endIcon={<KeyboardArrowRightIcon />}
-            sx={{
-              marginTop: '2rem',
-              display: 'flex',
-              alignSelf: 'flex-end',
-              width: '10rem',
-              height: '3rem',
-              fontWeight: 'bold',
-              textTransform: 'capitalize',
-            }}
-          >
-            {t('button.next')}
-          </Button>
-        </Box>
       </Content>
     </CustomBackground>
   );
