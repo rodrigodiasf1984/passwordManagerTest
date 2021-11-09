@@ -5,3 +5,4 @@ export { default as Step } from './Step';
 export { default as PasswordStrengthMeter } from './PasswordStrengthMeter';
 export { default as CustomTooltip } from './CustomTooltip';
 export { default as FeedbackMessage } from './FeedbackMessage';
+export { default as Footer } from './Footer';
