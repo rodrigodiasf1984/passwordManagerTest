@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-
 import { useHistory } from 'react-router';
+import { Typography, Box, Button, Snackbar, Divider } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
-import { Typography, Box, Button, Snackbar } from '@mui/material';
 import theme from 'theme';
-import { useTranslation } from 'react-i18next';
 
 type FeedbackMessageProps = {
   success: boolean;
@@ -16,7 +15,6 @@ const FeedbackMessage = ({ success }: FeedbackMessageProps) => {
   const history = useHistory();
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
-  // console.log(success, 'success');
 
   const handleClose = (event: unknown, reason: string) => {
     if (reason === 'clickaway') {
@@ -104,11 +102,17 @@ const FeedbackMessage = ({ success }: FeedbackMessageProps) => {
             ? t('views.feedback.successMessage')
             : t('views.feedback.errorMessage')}
         </Typography>
+        <Divider
+          sx={{
+            paddingTop: '4rem',
+            borderColor: '#ccd5da',
+          }}
+        />
         <Button
           variant="text"
           color="primary"
           sx={{
-            marginTop: '6rem',
+            marginTop: '1rem',
             marginBottom: `${!success && '1rem'}`,
             display: 'flex',
             alignSelf: 'flex-end',

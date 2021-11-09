@@ -1,17 +1,14 @@
 import React from 'react';
 import { CustomBackground } from 'components';
-import { useTranslation } from 'react-i18next';
-import { Container } from './styles';
+import NotFoundImage from 'assets/img/notFound.jpg';
+import { Container, Image } from './styles';
 
-const NotFound: React.FC = () => {
-  const { t } = useTranslation();
-  return (
-    <CustomBackground>
-      <Container>
-        <h2>404</h2>
-        <p>{t('notFoundComponent.notFound')}</p>
-      </Container>
-    </CustomBackground>
-  );
-};
+const NotFound: React.FC = () => (
+  <CustomBackground>
+    <Container>
+      <Image src={NotFoundImage} alt="Not Found Page" />
+      <a href="http://www.freepik.com">Designed by pikisuperstar / Freepik</a>
+    </Container>
+  </CustomBackground>
+);
 export default NotFound;

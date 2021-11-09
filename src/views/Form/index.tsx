@@ -304,11 +304,8 @@ function Step2() {
               >
                 {errors.passwordHint && errors.passwordHint.message}
               </FormHelperText>
-              <Box
+              <Divider
                 sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
                   paddingTop: `${
                     errors.confirmPassword ||
                     errors.password ||
@@ -316,6 +313,14 @@ function Step2() {
                       ? '14rem'
                       : '16rem'
                   }`,
+                  borderColor: '#ccd5da',
+                }}
+              />
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
                 }}
               >
                 <Button

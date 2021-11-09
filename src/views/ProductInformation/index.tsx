@@ -82,12 +82,12 @@ function Step1() {
             {t('views.common.descritipion2')}
           </Typography>
         </Box>
+        <Divider sx={{ paddingTop: '5rem', borderColor: '#ccd5da' }} />
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
-            paddingTop: '5rem',
           }}
         >
           <Button

@@ -16,3 +16,9 @@ export const Container = styled.div`
     font-size: ${converterToRem(20)}rem;
   }
 `;
+
+export const Image = styled.img`
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+`;
