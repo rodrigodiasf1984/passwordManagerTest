@@ -1,36 +1,47 @@
 {
-  "notFoundComponent":{
+  "button": {
+    "backToPM": "Volver a Password Manager",
+    "cancel": "Cancelar",
+    "next": "Siguiente",
+    "toAccess": "Acceder"
+  },
+  "notFoundComponent": {
     "notFound": "página no encontrada"
   },
-  "views":{
-    "title": "Crea tu gestor de contraseñas ",
-    "imageLeftDescription":"Guarda aqui todas tus contraseñas, datos o cualquier información, olvida las notas de papel y las aplicaciones no protegidas.",
-    "imageRightDescription":"Crea tu clave maestra: solo tú podrás acceder a tus secretos con ella.",
-    "subtitle":"¿Cómo funciona?",
-    "descritipion1":" En primer lugar, debes crear una contraseña para sus pertenencias electrónicas. No podrás recuperar tu contraseña, asi que recuérdela bien.",
-    "subtitle2":"Qué datos puedes guardar",
-    "descritipion2":"Por ejemplo, el número de tu tarjeta, el PIN el PUK de tu teléfono móvil, ele número de serie de alguno de tus dispositvos o cualquier información que necessites tener en lugar seguro."
-  },
-  "form":{
-    "labelInputForm1" : "Crea tu Contraseña Maestra",
-    "labelInputForm2" : "Repite tu Contraseña Maestra",
-    "labelInputForm3" : "Crea tu pista para recordar tu contraseña",
-    "infoTextForm":"También puedes crear una pista que te ayude a recordar tu contraseña maestra.",
-    "passwordToolTip":"Un recordatorio de cómo se obtuvo una contraseña. Para actualizar la memoria del usuario, algunos sistemas de inicio de sesión permiten ingresar una pista, que se muestra cada vez que se solicita la contraseña. Por ejemplo, si la contraseña contiene la fecha del cumpleaños de alguien, se podría ingresar el nombre de la persona como sugerencia. Sin embargo, las sugerencias de contraseña deben concebirse cuidadosamente; de lo contrario, un usuario no autorizado podría resolverlo.",
-    "errors":{
-      "passwordRequired":"La contraseña es requerida",
-      "passwordConfirmRequired":"Se requiere la confirmación de contraseña",
-      "passwordMinLength":"La contraseña debe tener al menos 8 caracteres",
-      "passwordMaxLength":"La contraseña debe tener menos de 24 caracteres",
-      "passwordSpecialChar":"La contraseña necesita al menos un carácter especial",
-      "passwordNotMatch":"Las contraseñas no coinciden",
-      "passwordHintLength":"La pista de contraseña debe tener menos de 255 caracteres.",
-      "passwordHintRequired":"La pista es necesaria"
+  "views": {
+    "common": {
+      "descritipion1": " En primer lugar, debes crear una contraseña para sus pertenencias electrónicas. No podrás recuperar tu contraseña, asi que recuérdela bien.",
+      "descritipion2": "Por ejemplo, el número de tu tarjeta, el PIN el PUK de tu teléfono móvil, ele número de serie de alguno de tus dispositvos o cualquier información que necessites tener en lugar seguro.",
+      "imageLeftDescription": "Guarda aqui todas tus contraseñas, datos o cualquier información, olvida las notas de papel y las aplicaciones no protegidas.",
+      "imageRightDescription": "Crea tu clave maestra: solo tú podrás acceder a tus secretos con ella.",
+      "loading": "Cargando...",
+      "snackbarMessage": "En construcción",
+      "subtitle": "¿Cómo funciona?",
+      "subtitle2": "Qué datos puedes guardar",
+      "title": "Crea tu gestor de contraseñas "
+    },
+    "feedback": {
+      "errorMessage": "No hemos podido modificar tu Contraseña. Inténtalo más tarde",
+      "errorTitle": "Ha habido un error",
+      "successMessage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "successTitle": "¡Tu password Manager ya está creado!"
+    },
+    "form": {
+      "errors": {
+        "passwordConfirmRequired": "Se requiere la confirmación de contraseña",
+        "passwordHintLength": "La pista de contraseña debe tener menos de 255 caracteres.",
+        "passwordHintRequired": "La pista es necesaria",
+        "passwordMaxLength": "La contraseña debe tener menos de 24 caracteres",
+        "passwordMinLength": "La contraseña debe tener al menos 8 caracteres",
+        "passwordNotMatch": "Las contraseñas no coinciden",
+        "passwordRequired": "La contraseña es requerida",
+        "passwordSpecialChar": "La contraseña necesita al menos un carácter especial"
+      },
+      "infoTextForm": "También puedes crear una pista que te ayude a recordar tu contraseña maestra.",
+      "labelInputForm1": "Crea tu Contraseña Maestra",
+      "labelInputForm2": "Repite tu Contraseña Maestra",
+      "labelInputForm3": "Crea tu pista para recordar tu contraseña",
+      "passwordToolTip": "Un recordatorio de cómo se obtuvo una contraseña. Para actualizar la memoria del usuario, algunos sistemas de inicio de sesión permiten ingresar una pista, que se muestra cada vez que se solicita la contraseña. Por ejemplo, si la contraseña contiene la fecha del cumpleaños de alguien, se podría ingresar el nombre de la persona como sugerencia. Sin embargo, las sugerencias de contraseña deben concebirse cuidadosamente; de lo contrario, un usuario no autorizado podría resolverlo."
     }
-  },
-  "button":{
-    "cancel": "Cancelar",
-    "next": "Siguiente"
   }
-
 }
