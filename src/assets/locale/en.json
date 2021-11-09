@@ -11,6 +11,23 @@
     "subtitle2":"What data can you save",
     "descritipion2":"For example, the number of your card, the PIN, the PUK of your mobile phone, the serial number of one of your devices or any information that you need to have in a safe place."
   },
+  "form":{
+    "labelInputForm1" : "Create your Master Password",
+    "labelInputForm2" : "Repeat your Master Password",
+    "labelInputForm3" : "Create your hint to remember your password",
+    "infoTextForm":"You can also create a hint to help you remember your master password.",
+    "passwordToolTip":"A reminder of how a password was derived. In order to jog the user's memory, some login systems allow a hint to be entered, which is displayed each time the password is requested. For example, if the password contains the date of someone's birthday, one might enter the name of the person as the hint. However, password hints have to be carefully conceived; otherwise, a non-authorized user might figure it out.",
+    "errors":{
+      "passwordRequired":"The Password is required",
+      "passwordConfirmRequired":"The Password Confirm is required",
+      "passwordMinLength":"The Password must be at least 8 characters long",
+      "passwordMaxLength":"The Password must be less than 24 characters long",
+      "passwordSpecialChar":"The Password need at least one special character",
+      "passwordNotMatch":"The Passwords do not match",
+      "passwordHintLength":"The Password hint must be less than 255 characters long",
+      "passwordHintRequired":"The hint is required"
+    }
+  },
   "button":{
     "cancel": "Cancel",
     "next": "Next"

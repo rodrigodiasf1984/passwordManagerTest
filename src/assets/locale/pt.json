@@ -11,6 +11,23 @@
     "subtitle2":"Quais dados você pode salvar",
     "descritipion2":"Por exemplo, o número do seu cartão, o PIN, o PUK do seu celular, o número de série de um dos seus dispositivos ou qualquer informação que você precise manter em um local seguro."
   },
+  "form":{
+    "labelInputForm1" : "Crie sua senha mestra",
+    "labelInputForm2" : "Repita sua senha mestra",
+    "labelInputForm3" : "Crie sua dica para lembrar sua senha",
+    "infoTextForm":"Você também pode criar uma dica para ajudá-lo a lembrar sua senha mestra.",
+    "passwordToolTip":"Um lembrete de como uma senha foi derivada. Para refrescar a memória do usuário, alguns sistemas de login permitem a inserção de uma dica, que é exibida sempre que a senha é solicitada. Por exemplo, se a senha contém a data de aniversário de alguém, pode-se inserir o nome da pessoa como dica. No entanto, as dicas de senha devem ser concebidas com cuidado; caso contrário, um usuário não autorizado pode descobrir.",
+    "errors":{
+      "passwordRequired":"A senha é obrigatória",
+      "passwordConfirmRequired":"A confirmação da senha é obrigatória",
+      "passwordMinLength":"A senha deve ter no mínimo 8 caracteres",
+      "passwordMaxLength":"A senha deve ter menos de 24 caracteres",
+      "passwordSpecialChar":"A senha precisa de pelo menos um caractere especial",
+      "passwordNotMatch":"As senhas não combinam",
+      "passwordHintLength":"A dica de senha deve ter menos de 255 caracteres",
+      "passwordHintRequired":"A dica é necessária"
+    }
+  },
   "button":{
     "cancel": "Cancelar",
     "next": "Próximo"
