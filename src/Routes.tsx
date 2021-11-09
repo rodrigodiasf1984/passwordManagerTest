@@ -6,7 +6,7 @@ import { NotFound } from './components';
 const Routes = () => (
   <>
     <Switch>
-      <Route path="/feedback" exact component={Feedback} />
+      <Route path="/feedback/" exact component={Feedback} />
       <Route path="/not-found" component={NotFound} />
       <Route path="/" exact component={ProductInformation} />
       <Route path="/Form" exact component={Form} />
