@@ -18,7 +18,7 @@ function Step1() {
       <Header currentStep={1} />
       <Content>
         <Typography variant="h1" color={theme.palette.secondary.main}>
-          {t('views.title')}
+          {t('views.common.title')}
         </Typography>
         <Divider
           sx={{
@@ -47,7 +47,7 @@ function Step1() {
             >
               <img src={groupImage} alt="group" />
               <Typography variant="h4" maxWidth={300} paddingTop={5}>
-                {t('views.imageLeftDescription')}
+                {t('views.common.imageLeftDescription')}
               </Typography>
             </Box>
             <Box
@@ -65,21 +65,21 @@ function Step1() {
                 paddingTop={5}
                 color={theme.palette.secondary.main}
               >
-                {t('views.imageRightDescription')}
+                {t('views.common.imageRightDescription')}
               </Typography>
             </Box>
           </Box>
           <Typography variant="h3" color={theme.palette.secondary.main}>
-            {t('views.subtitle')}
+            {t('views.common.subtitle')}
           </Typography>
           <Typography variant="h4" paddingTop={3} paddingBottom={3}>
-            {t('views.descritipion1')}
+            {t('views.common.descritipion1')}
           </Typography>
           <Typography variant="h3" color={theme.palette.secondary.main}>
-            {t('views.subtitle2')}
+            {t('views.common.subtitle2')}
           </Typography>
           <Typography variant="h4" paddingTop={3}>
-            {t('views.descritipion2')}
+            {t('views.common.descritipion2')}
           </Typography>
         </Box>
         <Box
