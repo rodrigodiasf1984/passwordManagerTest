@@ -1,12 +1,14 @@
 import React from 'react';
-import { Header } from 'components';
+import { CustomBackground, FeedbackMessage } from 'components';
+import { useHistory } from 'react-router';
 
-type Props = {
-  success: boolean;
-};
-
-function Step3({ success }: Props) {
-  return <Header currentStep={3} />;
+function Step3() {
+  const { location } = useHistory<{ success: boolean }>();
+  return (
+    <CustomBackground height={30}>
+      <FeedbackMessage success={location.state && location.state?.success} />
+    </CustomBackground>
+  );
 }
 
 export default Step3;
