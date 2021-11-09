@@ -41,7 +41,7 @@ The test consists of designing, layout and developing from scratch a small wizar
 - 📄 **YUP** - is a JavaScript schema builder for value parsing and validation.
 - 📄 **React-i18next** -  is an internationalization library that has been written for JavaScript and its frameworks
 - 📄 **React** - A JavaScript library for building user interfaces
-- 📄 *zxcvbn** -zxcvbn is a password strength estimator inspired by password crackers
+- 📄 **zxcvbn** -zxcvbn is a password strength estimator inspired by password crackers
 ## :memo: License
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
