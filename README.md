@@ -1,5 +1,5 @@
 <h3 align="center">
-  Made with Love 
+  Password Manager
 </h3>
 
 ## :camera: Demonstration
@@ -35,19 +35,19 @@ The test consists of designing, layout and developing from scratch a small wizar
 ## :hammer: Tools used
 
 - 📄 **Type script** - Project created with typescript 
-- ⚛️ **Styled Components** - Javascript library for styling components
-- 📄 **Material UI v5** - simply a library that allows us to import and use different components to create a user interface in our React applications. 
-- 📄 **React-hook-forms** - is a library that helps you validate forms in React.
-- 📄 **YUP** - is a JavaScript schema builder for value parsing and validation.
-- 📄 **React-i18next** -  is an internationalization library that has been written for JavaScript and its frameworks
+- ⚛️ **Styled Components** - Is a Javascript library for styling components
+- 📄 **Material UI v5** - Is simply a library that allows us to import and use different components to create a user interface in our React applications. 
+- 📄 **React-hook-forms** - Is a library that helps you validate forms in React.
+- 📄 **YUP** - Is a JavaScript schema builder for value parsing and validation.
+- 📄 **React-i18next** -  Is an internationalization library that has been written for JavaScript and its frameworks
 - 📄 **React** - A JavaScript library for building user interfaces
-- 📄 **zxcvbn** -zxcvbn is a password strength estimator inspired by password crackers
+- 📄 **zxcvbn** - Is a password strength estimator inspired by password crackers
 ## :memo: License
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+This project is under the MIT license. See the [LICENSE](LICENSE.md) file for more details.
 
 <h4 align="center">
-    Feito com 💜 by <a href="https://www.linkedin.com/in/rodrigodiasdefigueiredo/" target="_blank">Rodrigo Figueiredo</a>
+    Made with 💜 by <a href="https://www.linkedin.com/in/rodrigodiasdefigueiredo/" target="_blank">Rodrigo Figueiredo</a>
 </h4>
 
 <h3 align="center">
