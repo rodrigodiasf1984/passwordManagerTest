@@ -3,14 +3,15 @@ import { Container, Content, Top, ContainerStep } from './styles';
 
 type CustomBackgroundProps = {
   children: React.ReactNode;
+  height?: number | undefined;
 };
 
-function CustomBackground({ children }: CustomBackgroundProps) {
+function CustomBackground({ children, height }: CustomBackgroundProps) {
   return (
     <Container>
       <Top />
       <Content />
-      <ContainerStep>{children}</ContainerStep>
+      <ContainerStep height={!height ? 0 : height}>{children}</ContainerStep>
     </Container>
   );
 }

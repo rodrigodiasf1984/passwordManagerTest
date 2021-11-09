@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { converterToRem } from 'utils/converterToRem';
 
+interface Props {
+  height: number;
+}
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
@@ -23,11 +26,11 @@ export const Content = styled.div`
   background: #f5f5f5;
 `;
 
-export const ContainerStep = styled.div`
+export const ContainerStep = styled.div<Props>`
   display: flex;
   flex-direction: column;
   width: 98%;
-  height: 92%;
+  height: ${props => (props.height !== 0 ? props.height : 92)}%;
   background-color: #fff;
   margin: ${converterToRem(20)}rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
