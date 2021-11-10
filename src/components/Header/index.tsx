@@ -11,7 +11,7 @@ import {
 import Step from 'components/Step';
 import theme from 'theme';
 import i18next from 'i18next';
-import { Container, WrapperSteps, CustomDivider } from './styles';
+import { Container, WrapperSteps } from './styles';
 
 type HeaderProps = {
   currentStep: number;
@@ -37,7 +37,7 @@ const Header = ({ currentStep }: HeaderProps) => {
     <Container>
       <WrapperSteps>
         <Step name={1} active={currentStep === 1} completed={currentStep > 1} />
-        {/* <Divider
+        <Divider
           sx={{
             width: '50px',
             borderBottom: '5px solid',
@@ -46,8 +46,7 @@ const Header = ({ currentStep }: HeaderProps) => {
                 ? theme.palette.primary.main
                 : theme.palette.secondary.light,
           }}
-        /> */}
-        <CustomDivider currentStep={currentStep} />
+        />
         <Step name={2} active={currentStep === 2} completed={currentStep > 2} />
         <Divider
           sx={{

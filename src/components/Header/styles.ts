@@ -1,21 +1,6 @@
 import styled from 'styled-components';
 import { converterToRem } from 'utils/converterToRem';
 import theme from 'theme';
-import { Divider } from '@mui/material';
-import { styled as MuiStyled } from '@mui/material/styles';
-
-type DividerProps = {
-  currentStep: number;
-};
-
-export const CustomDivider = MuiStyled(Divider)<DividerProps>`
-width: 50px,
-border-bottom: 5px solid,
-color: ${props =>
-  props.currentStep > 1
-    ? theme.palette.primary.main
-    : theme.palette.secondary.light}
-`;
 
 export const Container = styled.header`
   display: flex;
