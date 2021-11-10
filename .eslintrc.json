@@ -28,7 +28,7 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "no-unused-expressions": "off",
     "@typescript-eslint/no-unused-expressions": 2,
     "no-use-before-define": "off",
