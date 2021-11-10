@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import {
   CustomBackground,
   Header,
@@ -25,12 +25,12 @@ function Step1() {
     <CustomBackground>
       <Header currentStep={1} />
       <Content>
-        <div>
+        <Box>
           <Typography variant="h1" color={theme.palette.secondary.main}>
             {t('views.common.title')}
           </Typography>
           <CustomSmallDivider />
-        </div>
+        </Box>
         <ContentWrapper>
           <WrapperImagesAndDescription>
             <WrapperImageAndDescription>
@@ -51,7 +51,11 @@ function Step1() {
             </WrapperImageAndDescription>
           </WrapperImagesAndDescription>
           <WrapperTextsAndFooter>
-            <Typography variant="h3" color={theme.palette.secondary.main}>
+            <Typography
+              variant="h3"
+              color={theme.palette.secondary.main}
+              paddingTop={2}
+            >
               {t('views.common.subtitle')}
             </Typography>
             <Typography variant="h4" paddingTop={2}>

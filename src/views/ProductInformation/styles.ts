@@ -4,14 +4,16 @@ import { converterToRem } from 'utils/converterToRem';
 export const Content = styled.main`
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   height: 100%;
   padding: ${converterToRem(10)}rem;
 
+  @media (max-width: 414px) {
+    align-items: center;
+  }
+
   @media (min-width: 809px) {
     padding: ${converterToRem(30)}rem ${converterToRem(100)}rem;
-    align-items: none;
   }
 `;
 
@@ -45,14 +47,14 @@ export const WrapperImageAndDescription = styled.div`
   justify-content: space-around;
   .firstImage,
   .secondImage {
-    width: 40%;
-    height: 40%;
+    width: 35%;
+    height: 35%;
   }
   .firstImage {
     padding-bottom: 1rem;
   }
   .secondImage {
-    padding-top: 1rem;
+    padding: 1rem 0;
   }
   @media (min-width: 768px) {
     .firstImage,

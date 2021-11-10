@@ -10,13 +10,9 @@ import { ButtonProps, MainProps } from './types';
 export const Container = styled.main<MainProps>`
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
+  padding: 1rem;
   border: ${props =>
     !props.success && `8px solid ${theme.palette.secondary.main}`};
-
-  @media (min-width: 768px) {
-    padding: 0 2rem;
-  }
 `;
 
 export const WrapperIconAndTitle = styled.div`

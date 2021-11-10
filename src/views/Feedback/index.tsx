@@ -5,7 +5,7 @@ import { useHistory } from 'react-router';
 function Step3() {
   const { location } = useHistory<{ success: boolean }>();
   return (
-    <CustomBackground height={30}>
+    <CustomBackground>
       <FeedbackMessage success={location.state && location.state?.success} />
     </CustomBackground>
   );

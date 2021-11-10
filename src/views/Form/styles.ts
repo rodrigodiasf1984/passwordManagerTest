@@ -9,8 +9,10 @@ export const Content = styled.main`
   width: 100%;
   height: 100%;
   padding: ${converterToRem(10)}rem ${converterToRem(18)}rem;
+
   @media (min-width: 809px) {
     padding: ${converterToRem(30)}rem ${converterToRem(100)}rem;
+    height: calc(100vh - 200px);
   }
 `;
 
