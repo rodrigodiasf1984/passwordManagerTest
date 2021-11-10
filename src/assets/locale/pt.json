@@ -1,0 +1,47 @@
+{
+  "button": {
+    "backToPM": "Voltar para o gerenciador de senhas",
+    "cancel": "Cancelar",
+    "next": "Próximo",
+    "toAccess": "Acessar"
+  },
+  "notFoundComponent": {
+    "notFound": "página não encontrada"
+  },
+  "views": {
+    "common": {
+      "descritipion1": "Primeiro, você deve criar uma senha para seus pertences eletrônicos. Você não conseguirá recuperar sua senha, então lembre-se dela bem.",
+      "descritipion2": "Por exemplo, o número do seu cartão, o PIN, o PUK do seu celular, o número de série de um dos seus dispositivos ou qualquer informação que você precise manter em um local seguro.",
+      "imageLeftDescription": "Salve aqui todas as suas senhas, dados ou qualquer informação, esqueça anotações em papel e aplicativos desprotegidos.",
+      "imageRightDescription": "Crie sua chave mestra: somente você pode acessar seus segredos com ela.",
+      "loading": "Carregando...",
+      "snackbarMessage": "Em construção",
+      "subtitle": "Como funciona?",
+      "subtitle2": "Quais dados você pode salvar",
+      "title": "Crie seu gerenciador de senhas"
+    },
+    "feedback": {
+      "errorMessage": "Não foi possível modificar sua senha. Tente mais tarde",
+      "errorTitle": "Ocorreu um erro",
+      "successMessage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "successTitle": "Seu gerenciador de senhas já foi criado!"
+    },
+    "form": {
+      "errors": {
+        "passwordConfirmRequired": "A confirmação da senha é obrigatória",
+        "passwordHintLength": "A dica de senha deve ter menos de 255 caracteres",
+        "passwordHintRequired": "A dica é necessária",
+        "passwordMaxLength": "A senha deve ter menos de 24 caracteres",
+        "passwordMinLength": "A senha deve ter no mínimo 8 caracteres",
+        "passwordNotMatch": "As senhas não combinam",
+        "passwordRequired": "A senha é obrigatória",
+        "passwordSpecialChar": "A senha precisa de pelo menos um caractere especial"
+      },
+      "infoTextForm": "Você também pode criar uma dica para ajudá-lo a lembrar sua senha mestra.",
+      "labelInputForm1": "Crie sua senha mestra",
+      "labelInputForm2": "Repita sua senha mestra",
+      "labelInputForm3": "Crie sua dica para lembrar sua senha",
+      "passwordToolTip": "Um lembrete de como uma senha foi derivada. Para refrescar a memória do usuário, alguns sistemas de login permitem a inserção de uma dica, que é exibida sempre que a senha é solicitada. Por exemplo, se a senha contém a data de aniversário de alguém, pode-se inserir o nome da pessoa como dica. No entanto, as dicas de senha devem ser concebidas com cuidado; caso contrário, um usuário não autorizado pode descobrir."
+    }
+  }
+}
