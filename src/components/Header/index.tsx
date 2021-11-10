@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Box,
-  Divider,
   FormControl,
   InputLabel,
   MenuItem,
@@ -11,7 +9,8 @@ import {
 import Step from 'components/Step';
 import theme from 'theme';
 import i18next from 'i18next';
-import { Container, WrapperSteps } from './styles';
+import Logo from 'assets/img/logo_openbank.png';
+import { Container, WrapperLang, WrapperSteps, CustomDivider } from './styles';
 
 type HeaderProps = {
   currentStep: number;
@@ -35,39 +34,15 @@ const Header = ({ currentStep }: HeaderProps) => {
 
   return (
     <Container>
+      <img src={Logo} alt="Logo" />
       <WrapperSteps>
         <Step name={1} active={currentStep === 1} completed={currentStep > 1} />
-        <Divider
-          sx={{
-            width: '50px',
-            borderBottom: '5px solid',
-            color:
-              currentStep > 1
-                ? theme.palette.primary.main
-                : theme.palette.secondary.light,
-          }}
-        />
+        <CustomDivider currentStep={currentStep} biggerThan={1} />
         <Step name={2} active={currentStep === 2} completed={currentStep > 2} />
-        <Divider
-          sx={{
-            width: '50px',
-            borderBottom: '5px solid',
-            color:
-              currentStep > 2
-                ? theme.palette.primary.main
-                : theme.palette.secondary.light,
-          }}
-        />
+        <CustomDivider currentStep={currentStep} biggerThan={2} />
         <Step name={3} active={currentStep === 3} completed={false} />
       </WrapperSteps>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          width: '100%',
-          maxWidth: '5%',
-        }}
-      >
+      <WrapperLang>
         <FormControl fullWidth>
           <InputLabel
             id="select-lang-input"
@@ -87,7 +62,7 @@ const Header = ({ currentStep }: HeaderProps) => {
             <MenuItem value="es">ES</MenuItem>
           </Select>
         </FormControl>
-      </Box>
+      </WrapperLang>
     </Container>
   );
 };
