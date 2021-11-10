@@ -5,21 +5,18 @@ import { styled as MuiStyled } from '@mui/material/styles';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
 import { converterToRem } from 'utils/converterToRem';
-
-type ButtonProps = {
-  success: boolean;
-};
-
-type MainProps = {
-  success: boolean;
-};
+import { ButtonProps, MainProps } from './types';
 
 export const Container = styled.main<MainProps>`
   display: flex;
   flex-direction: column;
-  padding: 0 2rem;
+  padding: 0 1rem;
   border: ${props =>
     !props.success && `8px solid ${theme.palette.secondary.main}`};
+
+  @media (min-width: 768px) {
+    padding: 0 2rem;
+  }
 `;
 
 export const WrapperIconAndTitle = styled.div`

@@ -3,3 +3,8 @@ export type StepProps = {
   active: boolean;
   completed?: boolean;
 };
+
+export interface CircleProps {
+  active: boolean;
+  completed: boolean;
+}

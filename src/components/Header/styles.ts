@@ -3,11 +3,7 @@ import { converterToRem } from 'utils/converterToRem';
 import { Divider as defaultDivider } from '@mui/material';
 import { styled as MuiStyled } from '@mui/material/styles';
 import theme from 'theme';
-
-type DividerProps = {
-  currentStep: number;
-  biggerThan: number;
-};
+import { DividerProps } from './types';
 
 export const Container = styled.header`
   display: flex;
@@ -19,6 +15,14 @@ export const Container = styled.header`
   background: ${theme.palette.background.default};
   position: relative;
   z-index: 1;
+  img {
+    width: 20%;
+  }
+  @media (min-width: 809px) {
+    img {
+      width: 8%;
+    }
+  }
 `;
 
 export const WrapperSteps = styled.section`
@@ -31,16 +35,18 @@ export const WrapperSteps = styled.section`
 export const WrapperLang = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
-  max-width: 5%;
+  max-width: 25%;
 `;
 
 export const CustomDivider = MuiStyled(defaultDivider)<DividerProps>`
-  width: 50px;
+  width: ${converterToRem(20)}rem;
   border-bottom: 5px solid;
   color:
     ${props =>
       props.currentStep > props.biggerThan
         ? theme.palette.primary.main
         : theme.palette.secondary.light};
+        @media(min-width: 809px){
+          width: ${converterToRem(50)}rem;
+        }
 `;

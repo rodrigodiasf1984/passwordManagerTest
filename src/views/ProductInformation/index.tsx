@@ -15,6 +15,7 @@ import {
   ContentWrapper,
   WrapperImagesAndDescription,
   WrapperImageAndDescription,
+  WrapperTextsAndFooter,
 } from './styles';
 
 function Step1() {
@@ -24,44 +25,51 @@ function Step1() {
     <CustomBackground>
       <Header currentStep={1} />
       <Content>
-        <Typography variant="h1" color={theme.palette.secondary.main}>
-          {t('views.common.title')}
-        </Typography>
-        <CustomSmallDivider />
+        <div>
+          <Typography variant="h1" color={theme.palette.secondary.main}>
+            {t('views.common.title')}
+          </Typography>
+          <CustomSmallDivider />
+        </div>
         <ContentWrapper>
           <WrapperImagesAndDescription>
             <WrapperImageAndDescription>
-              <img src={groupImage} alt="group" />
-              <Typography variant="h4" maxWidth={300} paddingTop={5}>
+              <img className="firstImage" src={groupImage} alt="group" />
+              <Typography variant="h4" maxWidth={300}>
                 {t('views.common.imageLeftDescription')}
               </Typography>
             </WrapperImageAndDescription>
             <WrapperImageAndDescription>
-              <img src={group3Image} alt="group" />
+              <img className="secondImage" src={group3Image} alt="group" />
               <Typography
                 variant="h4"
                 maxWidth={300}
-                paddingTop={5}
                 color={theme.palette.secondary.main}
               >
                 {t('views.common.imageRightDescription')}
               </Typography>
             </WrapperImageAndDescription>
           </WrapperImagesAndDescription>
-          <Typography variant="h3" color={theme.palette.secondary.main}>
-            {t('views.common.subtitle')}
-          </Typography>
-          <Typography variant="h4" paddingTop={3} paddingBottom={3}>
-            {t('views.common.descritipion1')}
-          </Typography>
-          <Typography variant="h3" color={theme.palette.secondary.main}>
-            {t('views.common.subtitle2')}
-          </Typography>
-          <Typography variant="h4" paddingTop={3}>
-            {t('views.common.descritipion2')}
-          </Typography>
+          <WrapperTextsAndFooter>
+            <Typography variant="h3" color={theme.palette.secondary.main}>
+              {t('views.common.subtitle')}
+            </Typography>
+            <Typography variant="h4" paddingTop={2}>
+              {t('views.common.descritipion1')}
+            </Typography>
+            <Typography
+              variant="h3"
+              color={theme.palette.secondary.main}
+              paddingTop={2}
+            >
+              {t('views.common.subtitle2')}
+            </Typography>
+            <Typography variant="h4" paddingTop={2}>
+              {t('views.common.descritipion2')}
+            </Typography>
+            <Footer historyPath="/form" onClick />
+          </WrapperTextsAndFooter>
         </ContentWrapper>
-        <Footer historyPath="/form" onClick />
       </Content>
     </CustomBackground>
   );

@@ -7,6 +7,9 @@ type DividerProps = {
 };
 
 export const Divider = MuiStyled(defaultDivider)<DividerProps>`
-  padding-top: ${props => (props.paddingTop ? props.paddingTop : '7rem')};
-  border-color: ${theme.palette.background.default}
+  border-color: ${theme.palette.background.default};
+  margin-top: 1rem;
+  @media(min-width: 1025px){
+    margin-top: ${props => (props.paddingTop ? props.paddingTop : '7rem')};
+   }
 `;

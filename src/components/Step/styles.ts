@@ -2,11 +2,7 @@
 import styled, { css } from 'styled-components';
 import theme from 'theme';
 import { converterToRem } from 'utils/converterToRem';
-
-interface CircleProps {
-  active: boolean;
-  completed: boolean;
-}
+import { CircleProps } from './types';
 
 export const Container = styled.section`
   display: flex;
@@ -39,11 +35,17 @@ export const Circle = styled.div<CircleProps>`
       css`
         position: absolute;
         content: '';
-        border-right: ${converterToRem(50)}rem solid transparent;
-        border-left: ${converterToRem(50)}rem solid transparent;
-        border-bottom: ${converterToRem(50)}rem solid
+        border-right: ${converterToRem(20)}rem solid transparent;
+        border-left: ${converterToRem(20)}rem solid transparent;
+        border-bottom: ${converterToRem(20)}rem solid
           ${theme.palette.common.white};
         top: ${converterToRem(60)}rem;
+
+        @media (min-width: 809px) {
+          border-right: ${converterToRem(50)}rem solid transparent;
+          border-left: ${converterToRem(50)}rem solid transparent;
+          border-bottom: ${converterToRem(50)}rem solid;
+        }
       `}
   }
 `;

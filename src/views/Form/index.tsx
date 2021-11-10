@@ -29,6 +29,8 @@ import {
   LoadingWrapper,
   WrapperLabelAndToolTip,
   EmptySpace,
+  FormContentWrapper,
+  FormInputWrapper,
 } from './styles';
 
 import { IFormInputs, InitialStateProps } from './types';
@@ -153,8 +155,8 @@ function Step2() {
               {t('views.common.descritipion1')}
             </Typography>
             <form onSubmit={handleSubmit(handleSubmitForm)}>
-              <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-                <Box sx={{ width: '30%', marginRight: '2rem' }}>
+              <FormContentWrapper>
+                <FormInputWrapper hasMarginRight>
                   <Typography
                     variant="h4"
                     paddingTop={1}
@@ -198,8 +200,8 @@ function Step2() {
                   >
                     {errors.password && errors.password.message}
                   </FormHelperText>
-                </Box>
-                <Box sx={{ width: '30%' }}>
+                </FormInputWrapper>
+                <FormInputWrapper>
                   <Typography
                     variant="h4"
                     paddingTop={1}
@@ -243,8 +245,8 @@ function Step2() {
                   >
                     {errors.confirmPassword && errors.confirmPassword.message}
                   </FormHelperText>
-                </Box>
-              </Box>
+                </FormInputWrapper>
+              </FormContentWrapper>
               <Typography variant="h4" paddingTop={5} paddingBottom={1}>
                 {t('views.form.infoTextForm')}
               </Typography>
