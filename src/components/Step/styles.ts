@@ -8,6 +8,13 @@ interface CircleProps {
   completed: boolean;
 }
 
+export const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Circle = styled.div<CircleProps>`
   border-radius: 50%;
   background-color: ${props =>

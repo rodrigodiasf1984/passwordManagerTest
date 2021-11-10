@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { converterToRem } from 'utils/converterToRem';
-import { Divider } from '@mui/material';
-import { styled as MuiStyled } from '@mui/material/styles';
 
 export const Content = styled.main`
   display: flex;
@@ -9,12 +7,6 @@ export const Content = styled.main`
   width: 100%;
   height: 100%;
   padding: ${converterToRem(30)}rem ${converterToRem(100)}rem;
-`;
-
-export const CustomDivider = MuiStyled(Divider)`
-  border-bottom-width: ${converterToRem(5)}rem;
-  width:${converterToRem(40)}rem;
-  margin-top: ${converterToRem(10)}rem;
 `;
 
 export const ContentWrapper = styled.section`

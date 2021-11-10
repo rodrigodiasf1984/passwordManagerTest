@@ -1,14 +1,17 @@
 import { Typography } from '@mui/material';
-import { CustomBackground, Header } from 'components';
+import {
+  CustomBackground,
+  Header,
+  Footer,
+  CustomSmallDivider,
+} from 'components';
 import { useTranslation } from 'react-i18next';
 import React from 'react';
 import group3Image from 'assets/img/group-3.svg';
 import groupImage from 'assets/img/group.svg';
 import theme from 'theme';
-import Footer from 'components/Footer';
 import {
   Content,
-  CustomDivider,
   ContentWrapper,
   WrapperImagesAndDescription,
   WrapperImageAndDescription,
@@ -24,7 +27,7 @@ function Step1() {
         <Typography variant="h1" color={theme.palette.secondary.main}>
           {t('views.common.title')}
         </Typography>
-        <CustomDivider />
+        <CustomSmallDivider />
         <ContentWrapper>
           <WrapperImagesAndDescription>
             <WrapperImageAndDescription>
@@ -58,7 +61,7 @@ function Step1() {
             {t('views.common.descritipion2')}
           </Typography>
         </ContentWrapper>
-        <Footer />
+        <Footer historyPath="/form" onClick />
       </Content>
     </CustomBackground>
   );

@@ -6,3 +6,6 @@ export { default as PasswordStrengthMeter } from './PasswordStrengthMeter';
 export { default as CustomTooltip } from './CustomTooltip';
 export { default as FeedbackMessage } from './FeedbackMessage';
 export { default as Footer } from './Footer';
+export { default as CustomDivider } from './CustomDivider';
+export { default as CustomSmallDivider } from './CustomSmallDivider';
+export { default as CustomButton } from './CustomButton';

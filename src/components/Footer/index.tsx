@@ -1,10 +1,23 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React from 'react';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { CustomButton, WapperButtons, CustomDivider } from './styles';
+import { CustomDivider, CustomButton } from 'components';
+import { WapperButtons } from './styles';
 
-const Footer = () => {
+type FooterProps = {
+  historyPath?: string;
+  onClick: boolean;
+  isSubmitButton?: boolean;
+  isDisabledButton?: boolean;
+};
+const Footer = ({
+  historyPath,
+  onClick,
+  isSubmitButton,
+  isDisabledButton,
+}: FooterProps) => {
   const history = useHistory();
   const { t } = useTranslation();
   return (
@@ -12,19 +25,20 @@ const Footer = () => {
       <CustomDivider />
       <WapperButtons>
         <CustomButton
+          type="button"
           position="start"
           variant="text"
-          color="secondary"
           onClick={() => history.goBack()}
         >
           {t('button.cancel')}
         </CustomButton>
         <CustomButton
+          type={isSubmitButton ? 'submit' : 'button'}
           position="end"
-          onClick={() => history.push('/form')}
+          onClick={onClick ? () => history.push(`${historyPath}`) : () => {}}
           variant="contained"
-          color="secondary"
-          endIcon={<KeyboardArrowRightIcon />}
+          icon={<KeyboardArrowRightIcon />}
+          disabled={isDisabledButton}
         >
           {t('button.next')}
         </CustomButton>

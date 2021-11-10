@@ -26,7 +26,11 @@ const StyledTooltip = styled(({ className, ...props }: TooltipProps) => (
 const CustomTooltip: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <StyledTooltip placement="top" arrow title={`${t('form.passwordToolTip')}`}>
+    <StyledTooltip
+      placement="top"
+      arrow
+      title={`${t('views.form.passwordToolTip')}`}
+    >
       <IconButton aria-label="info">
         <InfoOutlinedIcon />
       </IconButton>

@@ -4,20 +4,19 @@ import {
   Header,
   PasswordStrengthMeter,
   CustomTooltip,
+  Footer,
+  CustomSmallDivider,
 } from 'components';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Typography,
-  Divider,
   InputAdornment,
   Box,
-  Button,
   OutlinedInput,
-  FormHelperText,
   IconButton,
+  FormHelperText,
 } from '@mui/material';
 import theme from 'theme';
 import { useTranslation } from 'react-i18next';
@@ -25,7 +24,12 @@ import { VisibilityOff, Visibility } from '@mui/icons-material';
 import { useHistory } from 'react-router-dom';
 import { submitForm } from 'services/api';
 import CircularProgress from '@mui/material/CircularProgress';
-import { Content } from './styles';
+import {
+  Content,
+  LoadingWrapper,
+  WrapperLabelAndToolTip,
+  EmptySpace,
+} from './styles';
 
 interface IFormInputs {
   password: string;
@@ -96,6 +100,7 @@ function Step2() {
       showPassword: !values.showPassword,
     });
   };
+
   const handleClickShowConfirmPassword = () => {
     setValues({
       ...values,
@@ -127,8 +132,9 @@ function Step2() {
   const handleErrors = useCallback(() => {
     if (errors.password || errors.confirmPassword || errors.passwordHint) {
       setDisabled(true);
+    } else {
+      setDisabled(false);
     }
-    setDisabled(false);
   }, [errors.confirmPassword, errors.password, errors.passwordHint]);
 
   useEffect(() => {
@@ -140,34 +146,18 @@ function Step2() {
       <Header currentStep={2} />
       <Content>
         {isLoading ? (
-          <Box
-            sx={{
-              display: 'flex',
-              width: '100%',
-              height: '100%',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              alignSelf: 'center',
-            }}
-          >
+          <LoadingWrapper>
             <CircularProgress color="secondary" sx={{ marginRight: 1 }} />
             <Typography variant="h1" color={theme.palette.secondary.main}>
               {t('views.common.loading')}
             </Typography>
-          </Box>
+          </LoadingWrapper>
         ) : (
           <>
             <Typography variant="h1" color={theme.palette.secondary.main}>
               {t('views.common.title')}
             </Typography>
-            <Divider
-              sx={{
-                marginTop: '1rem',
-                width: '2%',
-                borderBottomWidth: 3,
-              }}
-            />
+            <CustomSmallDivider />
             <Typography variant="h4" paddingTop={3} paddingBottom={3}>
               {t('views.common.descritipion1')}
             </Typography>
@@ -267,14 +257,7 @@ function Step2() {
               <Typography variant="h4" paddingTop={5} paddingBottom={1}>
                 {t('views.form.infoTextForm')}
               </Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'flex-start',
-                }}
-              >
+              <WrapperLabelAndToolTip>
                 <Typography
                   variant="h4"
                   paddingTop={1}
@@ -285,7 +268,7 @@ function Step2() {
                   {t('views.form.labelInputForm3')}
                 </Typography>
                 <CustomTooltip />
-              </Box>
+              </WrapperLabelAndToolTip>
               <OutlinedInput
                 {...register('passwordHint', {
                   required: false,
@@ -298,66 +281,19 @@ function Step2() {
                 onChange={handleChange('passwordHint')}
                 label="Hint Password"
               />
-              <FormHelperText
-                id="outlined-adornment-password"
-                style={{ color: `${theme.palette.primary.main}` }}
-              >
+              <FormHelperText id="outlined-adornment-password">
                 {errors.passwordHint && errors.passwordHint.message}
               </FormHelperText>
-              <Divider
-                sx={{
-                  paddingTop: `${
-                    errors.confirmPassword ||
-                    errors.password ||
-                    errors.passwordHint
-                      ? '14rem'
-                      : '16rem'
-                  }`,
-                  borderColor: '#ccd5da',
-                }}
+              <EmptySpace
+                errorConfirmPassword={!!errors.confirmPassword}
+                errorPassword={!!errors.password}
+                errorPasswordHint={!!errors.passwordHint}
               />
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <Button
-                  variant="text"
-                  color="secondary"
-                  sx={{
-                    marginTop: '2rem',
-                    display: 'flex',
-                    alignSelf: 'flex-start',
-                    width: '10rem',
-                    fontWeight: 'bold',
-                    height: '3rem',
-                    textTransform: 'capitalize',
-                  }}
-                  onClick={() => history.goBack()}
-                >
-                  {t('button.cancel')}
-                </Button>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="secondary"
-                  endIcon={<KeyboardArrowRightIcon />}
-                  disabled={disabled}
-                  sx={{
-                    marginTop: '2rem',
-                    display: 'flex',
-                    alignSelf: 'flex-end',
-                    width: '10rem',
-                    height: '3rem',
-                    fontWeight: 'bold',
-                    textTransform: 'capitalize',
-                  }}
-                >
-                  {t('button.next')}
-                </Button>
-              </Box>
+              <Footer
+                onClick={false}
+                isSubmitButton
+                isDisabledButton={disabled}
+              />
             </form>
           </>
         )}
