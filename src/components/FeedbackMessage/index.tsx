@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-import { Typography, Box, Button, Snackbar, Divider } from '@mui/material';
+import { Typography, Snackbar } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
-import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
 import theme from 'theme';
+import { CustomDivider } from 'components';
+import {
+  Container,
+  WrapperIconAndTitle,
+  CustomButton,
+  CustomWarningIcon,
+  CustomSuccessIcon,
+} from './styles';
 
-type FeedbackMessageProps = {
-  success: boolean;
-};
+import { FeedbackMessageProps } from './types';
 
 const FeedbackMessage = ({ success }: FeedbackMessageProps) => {
   const history = useHistory();
@@ -43,45 +47,12 @@ const FeedbackMessage = ({ success }: FeedbackMessageProps) => {
         message={`${t('views.common.snackbarMessage')}`}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       />
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          paddingLeft: '2rem',
-          paddingRight: '2rem',
-          border: ` ${!success && `8px solid ${theme.palette.secondary.main}`}`,
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingTop: '2rem',
-          }}
-        >
+      <Container success={success}>
+        <WrapperIconAndTitle>
           {success ? (
-            <CheckCircleOutlineOutlinedIcon
-              color="success"
-              sx={{
-                display: 'flex',
-                marginTop: '1rem',
-                marginLeft: '1rem',
-                height: 50,
-                width: 50,
-              }}
-            />
+            <CustomSuccessIcon color="success" />
           ) : (
-            <WarningAmberOutlinedIcon
-              color="error"
-              sx={{
-                display: 'flex',
-                marginTop: '1rem',
-                marginLeft: '1rem',
-                height: 50,
-                width: 50,
-              }}
-            />
+            <CustomWarningIcon color="error" />
           )}
           <Typography
             variant="h1"
@@ -92,7 +63,7 @@ const FeedbackMessage = ({ success }: FeedbackMessageProps) => {
               ? t('views.feedback.successTitle')
               : t('views.feedback.errorTitle')}
           </Typography>
-        </Box>
+        </WrapperIconAndTitle>
         <Typography
           variant="h4"
           color={theme.palette.secondary.main}
@@ -102,31 +73,17 @@ const FeedbackMessage = ({ success }: FeedbackMessageProps) => {
             ? t('views.feedback.successMessage')
             : t('views.feedback.errorMessage')}
         </Typography>
-        <Divider
-          sx={{
-            paddingTop: '4rem',
-            borderColor: '#ccd5da',
-          }}
-        />
-        <Button
+        <CustomDivider paddingTop="4rem" />
+        <CustomButton
+          success={success}
           variant="text"
           color="primary"
-          sx={{
-            marginTop: '1rem',
-            marginBottom: `${!success && '1rem'}`,
-            display: 'flex',
-            alignSelf: 'flex-end',
-            width: `${!success ? '15rem' : '10rem'}`,
-            fontWeight: 'bold',
-            height: '3rem',
-            textTransform: 'capitalize',
-          }}
           onClick={() => handleNavigate()}
         >
           {success ? t('button.toAccess') : t('button.backToPM')}
           <KeyboardArrowRightOutlinedIcon />
-        </Button>
-      </Box>
+        </CustomButton>
+      </Container>
     </>
   );
 };

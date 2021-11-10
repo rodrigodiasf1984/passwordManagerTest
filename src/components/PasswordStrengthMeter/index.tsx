@@ -4,10 +4,7 @@ import LinearProgress, {
 } from '@mui/material/LinearProgress';
 import { styled } from '@mui/material/styles';
 import zxcvbn from 'zxcvbn';
-
-type PasswordStrengthMeterProps = {
-  password: string;
-};
+import { PasswordStrengthMeterProps } from './types';
 
 const PasswordStrengthMeter = ({ password }: PasswordStrengthMeterProps) => {
   const testResult = zxcvbn(password);

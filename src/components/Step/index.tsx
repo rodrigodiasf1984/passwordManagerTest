@@ -2,12 +2,7 @@
 import React from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import { Circle, Container } from './styles';
-
-type StepProps = {
-  name: number;
-  active: boolean;
-  completed?: boolean;
-};
+import { StepProps } from './types';
 
 const Step = ({ name, active, completed = false }: StepProps) => (
   <Container>

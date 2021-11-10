@@ -5,13 +5,8 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CustomDivider, CustomButton } from 'components';
 import { WapperButtons } from './styles';
+import { FooterProps } from './types';
 
-type FooterProps = {
-  historyPath?: string;
-  onClick: boolean;
-  isSubmitButton?: boolean;
-  isDisabledButton?: boolean;
-};
 const Footer = ({
   historyPath,
   onClick,

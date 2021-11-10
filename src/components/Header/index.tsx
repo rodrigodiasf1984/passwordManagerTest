@@ -11,10 +11,7 @@ import theme from 'theme';
 import i18next from 'i18next';
 import Logo from 'assets/img/logo_openbank.png';
 import { Container, WrapperLang, WrapperSteps, CustomDivider } from './styles';
-
-type HeaderProps = {
-  currentStep: number;
-};
+import { HeaderProps } from './types';
 
 const Header = ({ currentStep }: HeaderProps) => {
   const langFromStorage = localStorage.getItem('i18nextLng');

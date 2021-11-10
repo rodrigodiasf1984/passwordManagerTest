@@ -23,7 +23,8 @@ const StyledTooltip = styled(({ className, ...props }: TooltipProps) => (
     }
   }
 `;
-const CustomTooltip: React.FC = () => {
+
+const CustomTooltip = () => {
   const { t } = useTranslation();
   return (
     <StyledTooltip

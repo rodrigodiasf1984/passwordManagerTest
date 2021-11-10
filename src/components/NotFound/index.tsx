@@ -3,7 +3,7 @@ import { CustomBackground } from 'components';
 import NotFoundImage from 'assets/img/notFound.jpg';
 import { Container, Image } from './styles';
 
-const NotFound: React.FC = () => (
+const NotFound = () => (
   <CustomBackground>
     <Container>
       <Image src={NotFoundImage} alt="Not Found Page" />

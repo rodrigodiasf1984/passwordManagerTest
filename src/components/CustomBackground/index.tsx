@@ -1,10 +1,6 @@
 import React from 'react';
 import { Container, Content, Top, ContainerStep } from './styles';
-
-type CustomBackgroundProps = {
-  children: React.ReactNode;
-  height?: number | undefined;
-};
+import { CustomBackgroundProps } from './types';
 
 function CustomBackground({ children, height }: CustomBackgroundProps) {
   return (

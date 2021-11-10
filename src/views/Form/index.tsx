@@ -31,16 +31,7 @@ import {
   EmptySpace,
 } from './styles';
 
-interface IFormInputs {
-  password: string;
-  passwordHint: string;
-  confirmPassword: string;
-}
-
-interface InitialStateProps extends IFormInputs {
-  showPassword: boolean;
-  showConfirmPassword: boolean;
-}
+import { IFormInputs, InitialStateProps } from './types';
 
 function Step2() {
   const { t } = useTranslation();
