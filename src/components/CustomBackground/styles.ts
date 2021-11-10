@@ -35,15 +35,31 @@ export const ContainerStep = styled.div<ContainerStepProps>`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   position: absolute;
   z-index: 99;
+  height: 50%;
 
-  @media (min-width: 768px) {
-    width: 95%;
+  @media (min-height: 568px) {
+    height: 47%;
   }
-  @media (min-width: 809px) {
-    width: 95%;
-    height: 20%;
+  @media (min-height: 640px) {
+    height: 40%;
   }
-  @media (min-width: 1025px) {
+  @media (min-height: 667px) {
+    height: 35%;
+  }
+  @media (min-height: 731px) {
+    height: 32%;
+  }
+  @media (min-height: 812px) {
+    height: 29%;
+  }
+  @media (min-height: 1024px) {
+    width: 95%;
+    height: 22%;
+  }
+  @media (min-height: 1366px) {
+    height: 16%;
+  }
+  @media (min-width: 1367px) {
     width: 98%;
     height: ${props => (props.height !== 0 ? props.height : 98)}%;
   }
