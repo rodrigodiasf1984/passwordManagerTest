@@ -13,7 +13,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Typography,
   InputAdornment,
-  Box,
   OutlinedInput,
   IconButton,
   FormHelperText,
